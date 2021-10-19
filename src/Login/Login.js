@@ -12,9 +12,10 @@ const Login = () => {
         registerNewUser(email, password)
         setEmail("")
         setPassword("")
+
     }
     return (
-        <div>
+        <div className="">
             <h1>Please Login</h1>
             <input onBlur={handleEmailChange} className="p-2 m-2" type="email" placeholder="Enter Email" />
             <br />

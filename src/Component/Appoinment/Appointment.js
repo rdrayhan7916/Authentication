@@ -1,14 +1,29 @@
 
 import { useParams } from 'react-router';
+import { useEffect, useState } from 'react'
 
 const Appointment = () => {
     const { id } = useParams()
 
+    const [services, setServices] = useState([])
+    const [service, setService] = useState({})
+    useEffect(() => {
+        fetch('./fakeService.JSON')
+            .then(res => res.json())
+            .then(data => setServices(data))
+    }, [])
+    useEffect(() => {
+        const findService = services.find(service => service.id === id)
+        setService(findService)
+    }, [services])
+
     return (
         <div>
 
-            <h1>This is Appoinment {id}</h1>
-            <img className="img-fluid" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZG9jdG9yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="" />
+            <h1>This is Appoinment {service?.id}</h1>
+            <img className="img-fluid" src={service?.img} alt="" />
+            <h1>{service?.title}</h1>
+            <h5>{service?.description}</h5>
 
         </div>
     );
