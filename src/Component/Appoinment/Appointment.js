@@ -8,12 +8,13 @@ const Appointment = () => {
     const [services, setServices] = useState([])
     const [service, setService] = useState({})
     useEffect(() => {
-        fetch('./fakeService.JSON')
+        fetch('/fakeService.JSON')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
     useEffect(() => {
-        const findService = services.find(service => service.id === id)
+        const findService = services.find(ser => ser.id === id)
+        console.log(findService)
         setService(findService)
     }, [services])
 

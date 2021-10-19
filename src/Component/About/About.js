@@ -6,7 +6,7 @@ const About = () => {
             <div className="col-md-6">
                 <img className="p-5 img-fluid" src="https://media.istockphoto.com/photos/nurse-visiting-a-senior-man-patient-at-home-picture-id1280119548?k=20&m=1280119548&s=612x612&w=0&h=lMdzCiTl1EZCX5VRuRWbTDbsahMEK6NgHyR-hCYeyq4=" alt="" />
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6 ">
                 <h6 className="text-primary">About Us</h6>
                 <h1>We Are Your Trusted Friend</h1>
                 <p>Medizo is a trusted name of Medical Services who is always at your side and your health is our first priority.</p>

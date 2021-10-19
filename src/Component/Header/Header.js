@@ -14,6 +14,7 @@ const Header = () => {
                         <Nav.Link href="home">Home</Nav.Link>
                         <Nav.Link href="about">About</Nav.Link>
                         <Nav.Link href="services">Services</Nav.Link>
+                        <p className="pt-2">{user.displayName}</p>
                         {user.email ? <button onClick={logOut}>Log Out</button> :
                             <Nav.Link href="login">Login</Nav.Link>
                         }
