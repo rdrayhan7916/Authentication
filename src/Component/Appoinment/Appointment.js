@@ -1,30 +1,34 @@
 
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+
 
 const Appointment = () => {
     const { id } = useParams()
+    const appId = id;
 
     const [services, setServices] = useState([])
-    const [service, setService] = useState({})
+
     useEffect(() => {
         fetch('/fakeService.JSON')
             .then(res => res.json())
             .then(data => setServices(data))
+
     }, [])
-    useEffect(() => {
-        const findService = services.find(ser => ser.id === id)
-        console.log(findService)
-        setService(findService)
-    }, [services])
+
+    const findService = services.find(ser => ser.id === 1 || 2 || 3 || 4 || 5 || 6);
+    console.log(findService)
+
 
     return (
         <div>
 
-            <h1>This is Appoinment {service?.id}</h1>
-            <img className="img-fluid" src={service?.img} alt="" />
-            <h1>{service?.title}</h1>
-            <h5>{service?.description}</h5>
+            <h1>This is Appoinment {appId}</h1>
+            <img className="img-fluid" src={findService?.img} alt="" />
+            <h1>{findService?.title}</h1>
+            <h5>{findService?.description}</h5>
+            <Link to="home"><button className="btn btn-primary m-2">Go To Home</button></Link>
 
         </div>
     );
