@@ -16,13 +16,16 @@ const useFirebase = () => {
     const signInUsingGoogle = () => {
         signInWithPopup(auth, googleProvider)
             .then((result) => {
-                setUser(result)
+                setUser(result.user)
+                sessionStorage.setItem("email", result.user.email);
             })
     }
     const logOut = () => {
         signOut(auth)
             .then(() => {
                 setUser({})
+                sessionStorage.removeItem("email");
+
             })
     }
     const handleEmailChange = e => {
@@ -44,7 +47,7 @@ const useFirebase = () => {
             })
     }
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
+        onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
             }
@@ -52,7 +55,7 @@ const useFirebase = () => {
                 setUser({});
             }
         });
-        return () => unsubscribe;
+
     }, [])
     return {
         user,

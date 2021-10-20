@@ -4,11 +4,13 @@ import useFirebase from '../hooks/useFirebase';
 
 const PrivateRoute = ({ children, ...rest }) => {
     const { user } = useFirebase()
+    const email = sessionStorage.getItem("email");
+    console.log(user)
     return (
         <Route
             {...rest}
             render={({ location }) =>
-                user.email ? (
+                email ? (
                     children
                 ) : (
                     <Redirect
