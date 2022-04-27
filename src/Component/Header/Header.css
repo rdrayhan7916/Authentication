@@ -1,4 +1,11 @@
 .link{
     text-decoration: none;
-    color: black;
+    color:azure;
+}
+.navbar{
+    background-color: rgb(83, 83, 190);
+    color: azure;
+}
+.link:hover{
+    color: aliceblue;
 }

@@ -3,6 +3,8 @@ import useAuth from '../Component/hooks/useAuth';
 
 
 const Login = () => {
+   
+
     const { signInUsingGoogle, handleEmailChange,
         handlePasswordChange,
         registerNewUser,
@@ -12,8 +14,10 @@ const Login = () => {
         registerNewUser(email, password)
         setEmail("")
         setPassword("")
+       
 
     }
+    
     return (
         <div className="">
             <h1>Please Login</h1>

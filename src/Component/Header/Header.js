@@ -9,7 +9,7 @@ const Header = () => {
     const { user, logOut } = useAuth()
     return (
         <div>
-            <Navbar bg="light" variant="light">
+            <Navbar className='navbar' bg="blue" variant="blue">
                 <Container>
                     <Navbar.Brand to="home">Medizo</Navbar.Brand>
                     <Nav className="me-auto">
@@ -17,8 +17,8 @@ const Header = () => {
                         <Link className="p-2 link" to="about">About</Link>
                         <Link className="p-2 link" to="services">Services</Link>
                         <p className="pt-2">{user.displayName}</p>
-                        {user.email ? <button onClick={logOut}>Log Out</button> :
-                            <Link to="login">Login</Link>
+                        {user.email ?<Link className='p-2 link'> <button  onClick={logOut}>Log Out</button></Link> :
+                            <Link className='p-2 link' to="login">Login</Link>
                         }
                     </Nav>
                 </Container>

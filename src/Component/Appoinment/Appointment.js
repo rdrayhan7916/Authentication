@@ -1,4 +1,4 @@
-
+import './Appointment.css'
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
@@ -17,7 +17,7 @@ const Appointment = () => {
 
     }, [])
 
-    const findService = services.find(ser => ser.id === 1 || 2 || 3 || 4 || 5 || 6);
+    const findService = services.find(ser => ser.id == appId);
     console.log(findService)
 
 
